@@ -40,14 +40,20 @@ void menu_aviones(Cola<int>& C,Cola<int>& E)
         cin >> D;
         switch(D)
         {
-            case 'E': entrada_avion(mat,C,E);W=C;Z=E;
+            case 'E': {
+                entrada_avion(mat,C,E);
+                W=C;
+                Z=E;
                 cout<<"Elementos actuales de la cola: "<<endl;
                 cout<<"Cola C:"<<endl;while(!W.vacia()){cout<<W.frente()<<endl;W.pop();};
-                cout<<"Cola E:"<<endl;while(!Z.vacia()){cout<<Z.frente()<<endl;Z.pop();};;break;
-            case 'S': salida_avion(mat,C,E);W=C;Z=E;
+                cout<<"Cola E:"<<endl;while(!Z.vacia()){cout<<Z.frente()<<endl;Z.pop();};break;}
+            case 'S': {
+                salida_avion(mat,C,E);
+                W=C;
+                Z=E;
                 cout<<"Elementos actuales de la cola: "<<endl;
                 cout<<"Cola C:"<<endl;while(!W.vacia()){cout<<W.frente()<<endl;W.pop();};
-                cout<<"Cola E:"<<endl;while(!Z.vacia()){cout<<Z.frente()<<endl;Z.pop();};;break;
+                cout<<"Cola E:"<<endl;while(!Z.vacia()){cout<<Z.frente()<<endl;Z.pop();};break;}
             case '.':;break;
             default: cout<<"Letra introducida no valida, por favor, introduzca de nuevo"<<endl;break;
         }
@@ -85,5 +91,5 @@ void salida_avion(int mat,Cola<int>& C,Cola<int>& E)
             E.pop();}
     }
     else
-            salida_avion(E.frente(),E,COMP);
+            salida_avion(mat,E,COMP);
 }
