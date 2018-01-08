@@ -1,6 +1,5 @@
 #include <iostream>
 #include "tadcolapseudoestatico.h"
-#include "pila.h"
 #define N 4
 void menu_aviones(Cola<int>& C,Cola<int>& E);
 void entrada_avion(int mat,Cola<int>& C,Cola<int>& E);
@@ -9,7 +8,7 @@ int main()
 {
     using namespace std;
     Cola<int> C (N);
-    Cola<int> E (N);
+    Cola<int> E (100);
     C.push(1234);
     C.push(1235);
     C.push(1236);
@@ -38,6 +37,7 @@ void menu_aviones(Cola<int>& C,Cola<int>& E)
         cout << "Introduzca 'E' para la entrada o 'S' para la salida del avion indicado" << endl;
         cout << "Para terminar, introduzca '.'" << endl;
         cin >> D;
+        cout<<endl;
         switch(D)
         {
             case 'E': {
@@ -46,14 +46,16 @@ void menu_aviones(Cola<int>& C,Cola<int>& E)
                 Z=E;
                 cout<<"Elementos actuales de la cola: "<<endl;
                 cout<<"Cola C:"<<endl;while(!W.vacia()){cout<<W.frente()<<endl;W.pop();};
-                cout<<"Cola E:"<<endl;while(!Z.vacia()){cout<<Z.frente()<<endl;Z.pop();};break;}
+                cout<<"Cola E:"<<endl;while(!Z.vacia()){cout<<Z.frente()<<endl;Z.pop();};
+                cout<<endl;}break;
             case 'S': {
                 salida_avion(mat,C,E);
                 W=C;
                 Z=E;
                 cout<<"Elementos actuales de la cola: "<<endl;
                 cout<<"Cola C:"<<endl;while(!W.vacia()){cout<<W.frente()<<endl;W.pop();};
-                cout<<"Cola E:"<<endl;while(!Z.vacia()){cout<<Z.frente()<<endl;Z.pop();};break;}
+                cout<<"Cola E:"<<endl;while(!Z.vacia()){cout<<Z.frente()<<endl;Z.pop();};
+                cout<<endl;}break;
             case '.':;break;
             default: cout<<"Letra introducida no valida, por favor, introduzca de nuevo"<<endl;break;
         }
